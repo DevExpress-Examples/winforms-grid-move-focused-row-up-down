@@ -3,20 +3,48 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E719)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+
+# WinForms Data Grid - How to move data rows up and down
+
+
+This example shows how to swap the focused row and its adjacent row (top or bottom).
+
+```csharp
+// Moves the focused row up.
+private void button1_Click(object sender, System.EventArgs e) {
+	DevExpress.XtraGrid.Views.Grid.GridView view = gridView1;
+	view.GridControl.Focus();
+	int index = view.FocusedRowHandle;
+	if(index <= 0) return;
+	DataRow row1 = view.GetDataRow(index);
+	DataRow row2 = view.GetDataRow(index - 1);
+	object val1 = row1[OrderFieldName];
+	object val2 = row2[OrderFieldName];
+	row1[OrderFieldName] = val2;
+	row2[OrderFieldName] = val1;
+	view.FocusedRowHandle = index - 1;
+}
+// Moves the focused row down.
+private void button2_Click(object sender, System.EventArgs e) {
+	DevExpress.XtraGrid.Views.Grid.GridView view = gridView1;
+	view.GridControl.Focus();
+	int index = view.FocusedRowHandle;
+	if(index >= view.DataRowCount - 1) return;
+	DataRow row1 = view.GetDataRow(index);
+	DataRow row2 = view.GetDataRow(index + 1);
+	object val1 = row1[OrderFieldName];
+	object val2 = row2[OrderFieldName];
+	row1[OrderFieldName] = val2;
+	row2[OrderFieldName] = val1;
+	view.FocusedRowHandle = index + 1;
+}
+```
+
+## Files to Review
 
 * [Form1.cs](./CS/Form1.cs) (VB: [Form1.vb](./VB/Form1.vb))
-<!-- default file list end -->
-# How to move grid rows up and down
 
 
-<p>This example demonstrates how to swap two rows to move a specific row up or down</p>
+## See Also
 
-<b>See also:</b>
-
-[DevExpress WinForms Troubleshooting - Grid Control](https://go.devexpress.com/CheatSheets_WinForms_Examples_T934742.aspx)
-
-<br/>
-
-
+* [DevExpress WinForms Troubleshooting - Grid Control](https://go.devexpress.com/CheatSheets_WinForms_Examples_T934742.aspx)
