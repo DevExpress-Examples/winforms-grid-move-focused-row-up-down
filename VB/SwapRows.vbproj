@@ -45,7 +45,8 @@
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
-    <NoWarn>42353,42354,42355</NoWarn>
+    <NoWarn>
+    </NoWarn>
     <Optimize>false</Optimize>
     <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
@@ -68,7 +69,8 @@
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
-    <NoWarn>42353,42354,42355</NoWarn>
+    <NoWarn>
+    </NoWarn>
     <Optimize>true</Optimize>
     <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
@@ -145,9 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="My Project\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
